@@ -1,5 +1,6 @@
 #include <stdio.h>  
 #include <math.h>
+#include <stdlib.h>
 void insertionSort(int arr[], int n)
 
 {
@@ -133,7 +134,7 @@ int partition(int arr[], int start, int end)
  
     // Giving pivot element its correct position
     int pivotIndex = start + count;
-    swap(arr[pivotIndex], arr[start]);
+    swap(&arr[pivotIndex], &arr[start]);
  
     // Sorting left and right parts of the pivot element
     int i = start, j = end;
@@ -149,7 +150,7 @@ int partition(int arr[], int start, int end)
         }
  
         if (i < pivotIndex && j > pivotIndex) {
-            swap(arr[i++], arr[j--]);
+            swap(&arr[i++], &arr[j--]);
         }
     }
  
@@ -171,4 +172,49 @@ void quickSort(int arr[], int start, int end)
  
     // Sorting the right part
     quickSort(arr, p + 1, end);
+}
+void printArray(int arr[], int size)
+{
+    int i;
+    for (i=0; i < size; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+int main(){
+    printf("Enter the number of elements to be sorted \n");
+    int n;;
+    scanf("%d",&n);
+    int *arr=(int *)malloc(n*sizeof(int));
+    printf("Enter the number one by one \n");
+    for (int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
+    
+    printf("Enter 1 for insertion sort,2 for bubble sort, 3 for selection sort,4 for merge sort, 5 for quick sort \n");
+    int c;
+    scanf("%d",&c);
+    switch (c)
+    {
+    case 1:
+        insertionSort(arr,n);
+        break;
+    case 2:
+        bubblesort(arr,n);
+        break;
+    case 3:
+        selectionSort(arr,n);
+        break;
+    case 4:
+        insertionSort(arr,n);
+        break;
+    case 5:
+        quickSort(arr,0,n-1);
+        break;
+    
+    default:
+        printf("ERROR!!! WRONG CHOICE SELECTED ");
+        break;
+    }
+    printArray(arr,n);
+    return 0;
 }
