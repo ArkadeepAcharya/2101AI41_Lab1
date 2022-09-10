@@ -50,4 +50,9 @@ int main()
                 }  
             res = n1 / n2; // divide two numbers  
             printf (" Division of %d and %d is: %.2f", n1, n2, res);  
-            break;       
+            break;     
+        default:   
+            printf (" Something is wrong!! Please check the options ");               
+    }  
+    return 0;  
+}    
