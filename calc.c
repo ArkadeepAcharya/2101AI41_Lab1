@@ -37,4 +37,8 @@ int main()
         case '-':  
             res = n1 - n2; // subtract two numbers  
             printf (" Subtraction of %d and %d is: %.2f", n1, n2, res);  
-            break;    
+            break; 
+         case '*':  
+            res = n1 * n2; // multiply two numbers  
+            printf (" Multiplication of %d and %d is: %.2f", n1, n2, res);  
+            break;      
