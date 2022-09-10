@@ -41,4 +41,13 @@ int main()
          case '*':  
             res = n1 * n2; // multiply two numbers  
             printf (" Multiplication of %d and %d is: %.2f", n1, n2, res);  
-            break;      
+            break; 
+        case '/':  
+            if (n2 == 0)   // if n2 == 0, take another number  
+            {  
+                printf (" \n Divisor cannot be zero. Please enter another value ");  
+                scanf ("%d", &n2);        
+                }  
+            res = n1 / n2; // divide two numbers  
+            printf (" Division of %d and %d is: %.2f", n1, n2, res);  
+            break;       
